@@ -9,16 +9,16 @@
 <body>
   <header>
     <div class="logo">
-      <img src="static/logo.png" alt="Taste Click Logo" />
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Taste Click Logo" />
       <div>
         <h1>Taste Click</h1>
         <p>FOOD & DRINK</p>
       </div>
     </div>
     <nav>
-      <a href="index.html">Menu</a>
-      <a href="about.html">About</a>
-      <a href="cart.html">Cart</a>
+      <a href="{{ url_for('index') }}">Menu</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('cart') }}">Cart</a>
     </nav>
   </header>
 
@@ -28,15 +28,15 @@
       <h2>Breakfast</h2>
       <div class="product-grid">
         <div class="product" onclick="goToProduct('Bagel')">
-          <img src="static/bagel.png" alt="Bagel" />
+          <img src="{{ url_for('static', filename='bagel.png') }}" alt="Bagel" />
           <p>Bagel<br />$2.50</p>
         </div>
         <div class="product" onclick="goToProduct1('Croissant')">
-          <img src="static/croissant.png" alt="Croissant" />
+          <img src="{{ url_for('static', filename='croissant.png') }}" alt="Croissant" />
           <p>Croissant<br />$2.00</p>
         </div>
         <div class="product" onclick="goToProduct2('Omelette')">
-          <img src="static/omelette.png" alt="Omelette" />
+          <img src="{{ url_for('static', filename='omelette.png') }}" alt="Omelette" />
           <p>Omelette<br />$4.50</p>
         </div>
       </div>
@@ -47,15 +47,15 @@
       <h2>Sandwiches</h2>
       <div class="product-grid">
         <div class="product" onclick="goToProduct3('Ham & Cheese')">
-          <img src="static/hamcheese.png" alt="Ham & Cheese" />
+          <img src="{{ url_for('static', filename='hamcheese.png') }}" alt="Ham & Cheese" />
           <p>Ham & Cheese<br />$4.00</p>
         </div>
         <div class="product" onclick="goToProduct4('BLT')">
-          <img src="static/blt.png" alt="BLT" />
+          <img src="{{ url_for('static', filename='blt.png') }}" alt="BLT" />
           <p>BLT<br />$5.50</p>
         </div>
         <div class="product" onclick="goToProduct5('Turkey Melt')">
-          <img src="static/turkey.png" alt="Turkey Melt" />
+          <img src="{{ url_for('static', filename='turkey.png') }}" alt="Turkey Melt" />
           <p>Turkey Melt<br />$5.00</p>
         </div>
       </div>
@@ -66,15 +66,15 @@
       <h2>Soups</h2>
       <div class="product-grid">
         <div class="product" onclick="goToProduct6('Chicken Noodle')">
-          <img src="static/chicken_noodle.png" alt="Chicken Noodle" />
+          <img src="{{ url_for('static', filename='chicken_noodle.png') }}" alt="Chicken Noodle" />
           <p>Chicken Noodle<br />$3.00</p>
         </div>
         <div class="product" onclick="goToProduct7('Italian Wedding')">
-          <img src="static/italian_wedding.png" alt="Italian Wedding" />
+          <img src="{{ url_for('static', filename='italian_wedding.png') }}" alt="Italian Wedding" />
           <p>Italian Wedding<br />$4.00</p>
         </div>
         <div class="product" onclick="goToProduct8('Tomato')">
-          <img src="static/tomato.png" alt="Tomato" />
+          <img src="{{ url_for('static', filename='tomato.png') }}" alt="Tomato" />
           <p>Tomato<br />$3.00</p>
         </div>
       </div>
@@ -82,6 +82,6 @@
   </main>
 
 
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
