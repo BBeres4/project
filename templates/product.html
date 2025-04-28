@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bagel - Taste Click</title>
+  <title>{{ product['name'] }} - Taste Click</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
@@ -22,22 +22,22 @@
     </nav>
   </header>
 
-
   <main class="product-detail">
     <a href="{{ url_for('index') }}" class="back-link">&larr; Back</a>
     <div class="product-wrapper">
-      <img src="{{ url_for('static', filename='bagel.png') }}" alt="Bagel" class="detail-img" />
-      <div class="details">
-        <h2>Bagel</h2>
-        <p>$2.50</p>
-        <p>Our bagels are boiled and baked the traditional way for that perfect chewy bite and golden crust you'll crave.</p>
-        <button onclick="addToCart('Bagel', 2.5)">Add to Cart</button>
-      </div>
-    </div>
-  </main>
+        <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}" class="detail-img" />
+        <div class="details">
+            <h2>{{ product['name'] }}</h2>
+            <p>${{ "%.2f"|format(product['price']) }}</p>
 
+            <p>{{ product['description'] }}</p>
+            <form action="{{ url_for('add_to_cart', product_id=product['id']) }}" method="get">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</main>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
-

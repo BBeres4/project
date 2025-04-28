@@ -22,65 +22,55 @@
     </nav>
   </header>
 
-
   <main>
     <section>
       <h2>Breakfast</h2>
       <div class="product-grid">
-        <div class="product" onclick="goToProduct('Bagel')">
-          <img src="{{ url_for('static', filename='bagel.png') }}" alt="Bagel" />
-          <p>Bagel<br />$2.50</p>
+        {% for product in products %}
+        {% if product['category'] == 'Breakfast' %}
+        <div class="product">
+          <a href="{{ url_for('product_detail', product_id=product['id']) }}">
+            <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}" />
+            <p>{{ product['name'] }}<br />${{ product['price'] }}</p>
+          </a>
         </div>
-        <div class="product" onclick="goToProduct1('Croissant')">
-          <img src="{{ url_for('static', filename='croissant.png') }}" alt="Croissant" />
-          <p>Croissant<br />$2.00</p>
-        </div>
-        <div class="product" onclick="goToProduct2('Omelette')">
-          <img src="{{ url_for('static', filename='omelette.png') }}" alt="Omelette" />
-          <p>Omelette<br />$4.50</p>
-        </div>
+        {% endif %}
+        {% endfor %}
       </div>
     </section>
-
 
     <section>
       <h2>Sandwiches</h2>
       <div class="product-grid">
-        <div class="product" onclick="goToProduct3('Ham & Cheese')">
-          <img src="{{ url_for('static', filename='hamcheese.png') }}" alt="Ham & Cheese" />
-          <p>Ham & Cheese<br />$4.00</p>
+        {% for product in products %}
+        {% if product['category'] == 'Sandwiches' %}
+        <div class="product">
+          <a href="{{ url_for('product_detail', product_id=product['id']) }}">
+            <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}" />
+            <p>{{ product['name'] }}<br />${{ product['price'] }}</p>
+          </a>
         </div>
-        <div class="product" onclick="goToProduct4('BLT')">
-          <img src="{{ url_for('static', filename='blt.png') }}" alt="BLT" />
-          <p>BLT<br />$5.50</p>
-        </div>
-        <div class="product" onclick="goToProduct5('Turkey Melt')">
-          <img src="{{ url_for('static', filename='turkey.png') }}" alt="Turkey Melt" />
-          <p>Turkey Melt<br />$5.00</p>
-        </div>
+        {% endif %}
+        {% endfor %}
       </div>
     </section>
-
 
     <section>
       <h2>Soups</h2>
       <div class="product-grid">
-        <div class="product" onclick="goToProduct6('Chicken Noodle')">
-          <img src="{{ url_for('static', filename='chicken_noodle.png') }}" alt="Chicken Noodle" />
-          <p>Chicken Noodle<br />$3.00</p>
+        {% for product in products %}
+        {% if product['category'] == 'Soups' %}
+        <div class="product">
+          <a href="{{ url_for('product_detail', product_id=product['id']) }}">
+            <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}" />
+            <p>{{ product['name'] }}<br />${{ product['price'] }}</p>
+          </a>
         </div>
-        <div class="product" onclick="goToProduct7('Italian Wedding')">
-          <img src="{{ url_for('static', filename='italian_wedding.png') }}" alt="Italian Wedding" />
-          <p>Italian Wedding<br />$4.00</p>
-        </div>
-        <div class="product" onclick="goToProduct8('Tomato')">
-          <img src="{{ url_for('static', filename='tomato.png') }}" alt="Tomato" />
-          <p>Tomato<br />$3.00</p>
-        </div>
+        {% endif %}
+        {% endfor %}
       </div>
     </section>
   </main>
-
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

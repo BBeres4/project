@@ -26,6 +26,7 @@
   <main class="checkout">
     <a href="{{ url_for('cart') }}" class="back-link">&larr; Back</a>
     <h2>Checkout</h2>
+    <p><strong>Total Price:</strong> ${{ total_price }}</p>
     <form id="checkout-form" method="POST" action="{{ url_for('checkout') }}">
       <input type="text" name="name" placeholder="Card holder Name" required />
       <div class="row">
@@ -35,9 +36,11 @@
       </div>
       <input type="email" name="email" placeholder="Email" required />
       <input type="text" name="address" placeholder="Address" required />
+      <input type="hidden" name="total_price" value="{{ total_price }}">
       <button type="submit">Submit</button>
     </form>
   </main>
+  
 
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>

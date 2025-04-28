@@ -22,17 +22,26 @@
     </nav>
   </header>
 
-
   <main class="cart">
     <a href="{{ url_for('index') }}" class="back-link">&larr; Back</a>
-    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-items">
+      {% for product in cart_items %}
+        <div class="cart-item">
+          <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}" class="detail-img" />
+          <div class="cart-item-info">
+            <h3>{{ product['name'] }}</h3>
+            <p>{{ product['description'] }}</p>
+            <p>Price: ${{ product['price'] }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
     <div class="order-summary">
-      <p>Total: $<span id="cart-total">0.00</span></p>
+      <p>Total: $<span id="cart-total">{{ total_price }}</span></p>
       <a href="{{ url_for('checkout') }}" class="btn">Checkout →</a>
       <button onclick="clearCart()">Clear Cart</button>
     </div>
   </main>
-
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
