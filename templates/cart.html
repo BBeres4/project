@@ -31,13 +31,14 @@
           <div class="cart-item-info">
             <h3>{{ product['name'] }}</h3>
             <p>{{ product['description'] }}</p>
-            <p>Price: ${{ product['price'] }}</p>
-          </div>
+            <p>Price: ${{ '%.2f' % product['price'] }}</p>
+
         </div>
       {% endfor %}
     </div>
     <div class="order-summary">
-      <p>Total: $<span id="cart-total">{{ total_price }}</span></p>
+      <p>Total: $<span id="cart-total">{{ '%.2f' % total_price }}</span></p>
+
       <a href="{{ url_for('checkout') }}" class="btn">Checkout →</a>
       <button onclick="clearCart()">Clear Cart</button>
     </div>
